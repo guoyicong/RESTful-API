@@ -1,13 +1,22 @@
-import sqlite3
+import psycopg2
 
-conn = sqlite3.connect('movies.db')
+conn = psycopg2.connect("dbname=moviedb user=yguo")
 c = conn.cursor()
 
-c.execute('CREATE TABLE ratings'
-          '(user_id, movie_id, rating)')
+c.execute('''CREATE TABLE ratings (
+                user_id     integer,  
+                movie_id    integer,
+                rating      decimal
+);''')
 
-c.execute('CREATE TABLE movies'
-          '(movie_id, title, year, director, genre, rating)')
+c.execute('''CREATE TABLE movies (
+                movie_id    integer,
+                title       varchar,   
+                year        integer,
+                director    varchar,
+                genre       varchar,
+                rating      decimal
+);''')
 
 conn.commit()
 conn.close()

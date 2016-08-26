@@ -1,10 +1,10 @@
 from bottle import request, response, run, template, Bottle
 from bottle import route, post, get, put, delete
-import bottle.ext.sqlite
+import bottle_pgsql
 
 
 app = Bottle()
-plugin = bottle.ext.sqlite.Plugin(dbfile = 'movies.db')
+plugin = bottle_pgsql.Plugin('dbname=moviedb user=yguo password=pass')
 app.install(plugin)
 
 
