@@ -3,8 +3,8 @@
 <table border="1">
 %for row in rows:
   <tr>
-  %for col in row:
-    <td>{{col}}</td>
+  %for k, v in row.items():
+    <td>{{v}}</td>
   %end
   </tr>
 %end

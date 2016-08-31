@@ -6,7 +6,7 @@ c = conn.cursor()
 c.execute('''CREATE TABLE ratings (
                 user_id     integer,  
                 movie_id    integer,
-                rating      decimal
+                rating      decimal(1,0)
 );''')
 
 c.execute('''CREATE TABLE movies (
@@ -15,7 +15,7 @@ c.execute('''CREATE TABLE movies (
                 year        integer,
                 director    varchar,
                 genre       varchar,
-                rating      decimal
+                rating      decimal(2,1)
 );''')
 
 conn.commit()
